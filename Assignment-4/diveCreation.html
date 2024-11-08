@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    <script>
+
+        function createDiv(width, height, text) {
+        const body=document.getElementById('container');
+        const myDiv=document.createElement("div");
+        myDiv.style.height=height;
+        myDiv.style.width=width;
+        myDiv.innerHTML=text;
+        myDiv.style.padding="20px";
+        myDiv.style.margin="auto";
+        myDiv.style.backgroundColor='blue';
+        body.appendChild(myDiv);
+    
+}
+const text="In a quiet village nestled between misty mountains and lush green fields, life seemed to move at a slower, gentler pace. The air was filled with the scent of wildflowers, and the sound of birds chirping harmonized with the rustling leaves in the gentle breeze. Each morning, villagers would gather at the small marketplace, exchanging stories and laughter as they went about their day. Old cobblestone paths wound through rows of charming cottages, each with a unique character and history. As the sun dipped below the horizon, the sky was painted with hues of orange and pink, casting a warm glow over the village. It was a place where simplicity reigned and time felt infinite, untouched by the rush of the outside world.";
+createDiv('500px','300px',text);
+
+// Do not change this code
+Window.createDiv = createDiv;
+    </script>
+</body>
+</html>

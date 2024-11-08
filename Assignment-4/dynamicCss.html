@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="text-here" id="text-container">This is some example text</div>
+
+    <input type="text" id="colorbox"  />
+
+    <button id="colorchange" onclick="changeTextColor()">Change Color</button>
+
+    <br /><br />
+
+    <input type="range" id="fontsize" min="10" max="100" value="55" oninput="fontSize()" />
+    <br /><br />
+
+    <button id="italic" class="stylebt" onclick="italicStyle()">Italics</button>
+    <button id="underline" class="stylebt" onclick="underlineStyle()">Underline</button>
+    <button id="bold" class="stylebt" onclick="boldStyle()">Bold</button>
+
+    <br /><br />
+
+    <select id="list" onchange="changeFontFamily()">
+      <option value="serif">Serif</option>
+      <option value="sans-serif">Sans-Serif</option>
+      <option value="monospace">Monospace</option>
+      <option value="cursive">Cursive</option>
+      <option value="fantasy">Fantasy</option>
+    </select>
+
+    <br /><br />
+
+    <button id="getstyle" onclick="getProperties()">Get CSS</button>
+
+    <br /><br />
+    <pre id="css-props"></pre>
+
+    <script>
+      const textVal = document.getElementById("text-container");
+
+      function changeTextColor() {
+        const input = document.getElementById("colorbox").value;
+        textVal.style.color = input;
+      }
+
+      function italicStyle() {
+        textVal.style.fontStyle = textVal.style.fontStyle === "italic" ? "normal" : "italic";
+      }
+
+      function boldStyle() {
+        textVal.style.fontWeight = textVal.style.fontWeight === "bold" ? "normal" : "bold";
+      }
+
+      function underlineStyle() {
+        textVal.style.textDecoration = textVal.style.textDecoration === "underline" ? "none" : "underline";
+      }
+
+      function fontSize() {
+        const inp = document.getElementById("fontsize").value;
+        textVal.style.fontSize = inp + "px";
+      }
+
+      function changeFontFamily() {
+        const inp = document.getElementById("list").value;
+        textVal.style.fontFamily = inp;
+      }
+
+      function getProperties() {
+        const computedStyles = window.getComputedStyle(textVal);
+        let styles = "";
+
+        for (let i = 0; i < computedStyles.length; i++) {
+          const propertyName = computedStyles[i];
+          const propertyValue = computedStyles.getPropertyValue(propertyName);
+          styles += `${propertyName}: ${propertyValue};\n`;
+        }
+
+        document.getElementById("css-props").textContent = styles;
+      }
+    </script>
+  </body>
+</html>
