@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [display, setDisplay] = useState('');
+  const [display, setDisplay] = useState("");
   const [value1, setValue1] = useState(null);
   const [operator, setOperator] = useState(null);
 
@@ -11,10 +11,10 @@ function App() {
   };
 
   const handleOperatorClick = (op) => {
-    if (display !== '') {
+    if (display !== "") {
       setValue1(parseFloat(display));
       setOperator(op);
-      setDisplay(display + ' ' + op + ' ');
+      setDisplay(display + " " + op + " ");
     }
   };
 
@@ -25,16 +25,16 @@ function App() {
 
       let res;
       switch (operator) {
-        case '+':
+        case "+":
           res = value1 + value2;
           break;
-        case '-':
+        case "-":
           res = value1 - value2;
           break;
-        case '*':
+        case "*":
           res = value1 * value2;
           break;
-        case '/':
+        case "/":
           res = value1 / value2;
           break;
         default:
@@ -48,7 +48,7 @@ function App() {
   };
 
   const handleClearClick = () => {
-    setDisplay('');
+    setDisplay("");
     setOperator(null);
     setValue1(null);
   };
@@ -58,10 +58,14 @@ function App() {
       <div className="display">{display || 0}</div>
       <div className="btns">
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((num) => (
-          <button key={num} onClick={() => handleNumberClick(num.toString())}>{num}</button>
+          <button key={num} onClick={() => handleNumberClick(num.toString())}>
+            {num}
+          </button>
         ))}
         {["+", "-", "*", "/"].map((op) => (
-          <button key={op} onClick={() => handleOperatorClick(op)}>{op}</button>
+          <button key={op} onClick={() => handleOperatorClick(op)}>
+            {op}
+          </button>
         ))}
         <button onClick={handleClearClick}>C</button>
         <button onClick={handleEqualsClick}>=</button>
