@@ -2,9 +2,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 const Confirmation = () => {
   const {state}=useLocation();
-  if (!state) {
-    return <p>No data available. Please go back and fill the form.</p>;
-  }
+  
   const {name, email, phone,confirmId}=state;
   return (
     <div>

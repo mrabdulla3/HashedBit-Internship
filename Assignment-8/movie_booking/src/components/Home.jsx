@@ -165,17 +165,17 @@ const movies = [
 
 const Home = () => {
   return (
-    <div className="container mt-4">
-      <div className="row g-4">
+    <div className="container mt-4" >
+      <div className="row g-4" >
         {movies.map((m) => (
-          <div key={m.id} className="col-md-3">
-            <div className="card border p-4 rounded shadow-lg text-center bg-white">
+          <div key={m.id} className="col-md-3" >
+            <div className="card border p-4 rounded shadow-lg text-center bg-white" >
               <Link
                key={m.id}
                 to={`/detail-page`}
                 state={{ title: m.title, image: m.image ,language:m.Language,size:m.size,storyline:m.storyline}}
               >
-                <img src={m.image} alt={m.title} className="card-img-top" />
+                <img src={m.image} alt={m.title} className="card-img-top" height={300} width={200}/>
                 <div className="card-body text-center">
                   <h5 className="card-title">{m.title}</h5>
                 </div>
